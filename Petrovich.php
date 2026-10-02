@@ -43,6 +43,7 @@ class Petrovich {
     * @param $middlename
     * @return integer
     * @throws Exception
+     * @psalm-pure
     */
     public function detectGender($middlename)
     {
@@ -195,6 +196,7 @@ class Petrovich {
      * @param $name
      * @param $case
      * @return string
+     * @psalm-pure
      */
     private function applyRule($mods,$name,$case) {
         $result = mb_substr($name,0,mb_strlen($name) - mb_substr_count($mods[$case],'-'));
@@ -206,6 +208,7 @@ class Petrovich {
     * Преобразует строковое обозначение пола в числовое
     * @param string
     * @return integer
+     * @psalm-pure
     */
     private function getGender($gender) {
         switch($gender) {
@@ -219,6 +222,7 @@ class Petrovich {
     * Проверяет переданный пол на соответствие установленному
     * @param string
     * @return bool
+     * @psalm-capabilities read-props
     */
     private function checkGender($gender) {
         return $this->gender === $this->getGender($gender) || $this->getGender($gender) === Petrovich::GENDER_ANDROGYNOUS;
