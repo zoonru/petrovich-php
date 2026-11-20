@@ -65,6 +65,8 @@ class Petrovich {
      * @param $case
      * @return bool|string
      * @throws Exception
+     * @psalm-flow ($firstname) -> return
+     * @psalm-taint-specialize
      */
     public function firstname($firstname, $case = Petrovich::CASE_NOMENATIVE) {
         if(empty($firstname))
@@ -84,6 +86,8 @@ class Petrovich {
      * @param $case
      * @return bool|string
      * @throws Exception
+     * @psalm-flow ($middlename) -> return
+     * @psalm-taint-specialize
      */
     public function middlename($middlename, $case = Petrovich::CASE_NOMENATIVE) {
         if(empty($middlename))
@@ -103,6 +107,8 @@ class Petrovich {
      * @param $case
      * @return bool|string
      * @throws Exception
+     * @psalm-flow ($lastname) -> return
+     * @psalm-taint-specialize
      */
     public function lastname($lastname, $case = Petrovich::CASE_NOMENATIVE) {
         if(empty($lastname))
